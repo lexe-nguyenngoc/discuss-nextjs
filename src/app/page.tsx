@@ -1,6 +1,6 @@
 import React from "react";
 
-import TopicCreateForm from "@/components/TopicCreateForm";
+import TopicCreateForm from "@/components/topics/TopicCreateForm";
 
 const HomePage = () => {
   return (
