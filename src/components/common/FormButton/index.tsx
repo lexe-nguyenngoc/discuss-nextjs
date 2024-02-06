@@ -10,8 +10,6 @@ interface FormButtonProps {
 const FormButton = ({ children }: FormButtonProps) => {
   const { pending } = useFormStatus();
 
-  console.log({ pending });
-
   return (
     <Button type="submit" isLoading={pending}>
       {children}
