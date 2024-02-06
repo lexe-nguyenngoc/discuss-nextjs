@@ -8,7 +8,7 @@ import {
 import Link from "next/link";
 import React from "react";
 
-import paths from "@/path";
+import paths from "@/paths";
 
 import HeaderAuth from "./HeaderAuth";
 
