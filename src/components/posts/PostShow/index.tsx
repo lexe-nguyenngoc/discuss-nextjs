@@ -14,6 +14,8 @@ const PostShow = async ({ postId }: PostShowProps) => {
     },
   });
 
+  await new Promise((resolve) => setTimeout(resolve, 4000));
+
   if (!post) notFound();
 
   return (

@@ -5,6 +5,8 @@ import paths from "@/paths";
 import PostShow from "@/components/posts/PostShow";
 import CommentCreateForm from "@/components/comments/CommentCreateForm";
 import CommentList from "@/components/comments/CommentList";
+import { Suspense } from "react";
+import PostShowLoading from "@/components/posts/PostShowLoading";
 
 interface PostShowPageProps {
   params: {
@@ -21,7 +23,9 @@ export default async function PostShowPage({ params }: PostShowPageProps) {
       <Link className="underline decoration-solid" href={paths.topicShow(slug)}>
         {"< "}Back to {slug}
       </Link>
-      <PostShow postId={postId} />
+      <Suspense fallback={<PostShowLoading />}>
+        <PostShow postId={postId} />
+      </Suspense>
       <CommentCreateForm postId={postId} startOpen />
       <CommentList postId={postId} />
     </div>
