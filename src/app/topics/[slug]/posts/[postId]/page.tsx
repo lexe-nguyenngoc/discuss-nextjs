@@ -1,7 +1,14 @@
 import React from "react";
 
-const PostShowPage = () => {
-  return <div>Post Show Page</div>;
+interface PostShowPageProps {
+  params: {
+    slug: string;
+    postId: string;
+  };
+}
+
+const PostShowPage = ({ params }: PostShowPageProps) => {
+  return <div>Post Show Page, {JSON.stringify(params)}</div>;
 };
 
 export default PostShowPage;
