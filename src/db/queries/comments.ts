@@ -1,10 +1,11 @@
 import db from "@/db";
+import { cache } from "react";
 
 export type CommentsWithUser = Awaited<
   ReturnType<typeof fetchCommentsByPostId>
 >;
 
-export const fetchCommentsByPostId = async (postId: string) => {
+export const fetchCommentsByPostId = cache(async (postId: string) => {
   const comments = await db.comment.findMany({
     where: {
       postId,
@@ -20,4 +21,4 @@ export const fetchCommentsByPostId = async (postId: string) => {
   });
 
   return comments;
-};
+});

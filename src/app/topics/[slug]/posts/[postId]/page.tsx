@@ -1,6 +1,5 @@
 import Link from "next/link";
 
-import { fetchCommentsByPostId } from "@/db/queries/comments";
 import paths from "@/paths";
 
 import PostShow from "@/components/posts/PostShow";
@@ -17,8 +16,6 @@ interface PostShowPageProps {
 export default async function PostShowPage({ params }: PostShowPageProps) {
   const { slug, postId } = params;
 
-  const comments = await fetchCommentsByPostId(postId);
-
   return (
     <div className="space-y-3">
       <Link className="underline decoration-solid" href={paths.topicShow(slug)}>
@@ -26,7 +23,7 @@ export default async function PostShowPage({ params }: PostShowPageProps) {
       </Link>
       <PostShow postId={postId} />
       <CommentCreateForm postId={postId} startOpen />
-      <CommentList comments={comments} />
+      <CommentList postId={postId} />
     </div>
   );
 }
